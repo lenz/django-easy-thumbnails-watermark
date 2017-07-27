@@ -114,8 +114,7 @@ def determine_rotation(rotation, mark):
     Determines the number of degrees to rotate the watermark image.
     """
 
-    if (isinstance(rotation, str) or isinstance(rotation, unicode)) \
-        and rotation.lower() == 'r':
+    if (isinstance(rotation, str)) and rotation.lower() == 'r':
         rotation = random.randint(0, 359)
     else:
         rotation = _int(rotation)
