@@ -17,7 +17,7 @@ setup(
     url='http://v.licheni.net/drc/django-easy-thumbnails-watermark.git',
     author='Davide Riccardo Caliendo',
     author_email='davide.licheni.net',
-    install_requires=['easy_thumbnails'],   
+    install_requires=['easy_thumbnails'],
     classifiers=[
         'Environment :: Web Environment',
         'Framework :: Django',
@@ -31,4 +31,3 @@ setup(
         'Topic :: Internet :: WWW/HTTP :: Dynamic Content',
     ],
 )
-
