@@ -52,16 +52,16 @@ def reduce_opacity(img, opacity):
     """
     Returns an image with reduced opacity.
     """
-    assert opacity >= 0 and opacity <= 1
+    if opacity >= 0 and opacity <= 1:
 
-    if img.mode != 'RGBA':
-        img = img.convert('RGBA')
-    else:
-        img = img.copy()
+        if img.mode != 'RGBA':
+            img = img.convert('RGBA')
+        else:
+            img = img.copy()
 
-    alpha = img.split()[3]
-    alpha = ImageEnhance.Brightness(alpha).enhance(opacity)
-    img.putalpha(alpha)
+        alpha = img.split()[3]
+        alpha = ImageEnhance.Brightness(alpha).enhance(opacity)
+        img.putalpha(alpha)
 
     return img
 
@@ -84,15 +84,15 @@ def determine_scale(scale, img, mark):
             if scale.lower() == 'f':
                 # scale, but preserve the aspect ratio
                 scale = min(
-                            float(img.size[0]) / mark.size[0],
-                            float(img.size[1]) / mark.size[1]
-                           )
+                    float(img.size[0]) / mark.size[0],
+                    float(img.size[1]) / mark.size[1]
+                )
             elif re.match(r'\d{1,3}\%', scale):
                 scale = float(scale.replace('%', ''))
                 scale = min(
-                            float(img.size[0]) / mark.size[0],
-                            float(img.size[1]) / mark.size[1]
-                           ) / 100 * scale
+                    float(img.size[0]) / mark.size[0],
+                    float(img.size[1]) / mark.size[1]
+                ) / 100 * scale
 
             else:
                 raise ValueError(errmess)
