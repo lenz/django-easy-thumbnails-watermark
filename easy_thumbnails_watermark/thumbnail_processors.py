@@ -1,4 +1,5 @@
-from django.conf import settings
+from django.contrib.staticfiles import finders
+
 try:
     from PIL import Image, ImageEnhance
 except ImportError:
@@ -245,14 +246,14 @@ def watermark_filter(img, mark, position, opacity, scale, tile, greyscale, rotat
 
 def watermark_processor(image, WATERMARK=False, **kwargs):
     if WATERMARK:
-        mk = Image.open(os.path.join(settings.STATIC_ROOT, WATERMARK['image']))
+        mk = Image.open(finders.find(os.path.join(WATERMARK['image'])))
         image = watermark_filter(
-                    image, mk,
-                    WATERMARK.get('position', 'BR'),
-                    WATERMARK.get('opacity', 0.5),
-                    WATERMARK.get('scale', 1),
-                    WATERMARK.get('tile', False),
-                    WATERMARK.get('greyscale', False),
-                    WATERMARK.get('rotation', 0)
+            image, mk,
+            WATERMARK.get('position', 'BR'),
+            WATERMARK.get('opacity', 0.5),
+            WATERMARK.get('scale', 1),
+            WATERMARK.get('tile', False),
+            WATERMARK.get('greyscale', False),
+            WATERMARK.get('rotation', 0)
         )
     return image
