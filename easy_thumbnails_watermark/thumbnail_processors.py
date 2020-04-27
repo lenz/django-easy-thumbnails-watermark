@@ -186,7 +186,7 @@ def determine_position(position, img, mark):
             else:
                 top = _int(top)
 
-    return (left, top)
+    return (int(left), int(top))
 
 
 def watermark_filter(img, mark, position, opacity, scale, tile, greyscale, rotation, **kwargs):
