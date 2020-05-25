@@ -1,6 +1,6 @@
 Metadata-Version: 1.1
 Name: django-easy-thumbnails-watermark
-Version: 0.6.2
+Version: 0.6.3
 Summary: A watermark filter for easy_thumbnails
 Home-page: http://v.licheni.net/drc/django-easy-thumbnails-watermark.git
 Author: Davide Riccardo Caliendo
