@@ -75,9 +75,10 @@ And one of the following settings:
   any integer should work, but for your own sanity I recommend keeping the
   value between 0 and 359).  If you want the rotation to be random, use
   ``rotation=R`` instead of an integer.
+* ``noalpha`` - Set this parameter to ``noalpha=False`` to keep the layers and RGBA mode.
 
 
-They defaults to  watermark=False, position='C', opacity=100, scale=1, tile=False, greyscale=False, rotation=0
+They defaults to  watermark=False, position='C', opacity=100, scale=1, tile=False, greyscale=False, rotation=0, noalpha=True
 
 Credits
 =======

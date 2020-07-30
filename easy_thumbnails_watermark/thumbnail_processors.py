@@ -189,7 +189,7 @@ def determine_position(position, img, mark):
     return (left, top)
 
 
-def watermark_filter(img, mark, position, opacity, scale, tile, greyscale, rotation, **kwargs):
+def watermark_filter(img, mark, position, opacity, scale, tile, greyscale, rotation, noalpha, **kwargs):
     """
     Adds a watermark to an image.
     """
@@ -240,6 +240,9 @@ def watermark_filter(img, mark, position, opacity, scale, tile, greyscale, rotat
     else:
         layer.paste(mark, position)
 
+    if noalpha:
+        img = img.convert('RGB')
+
     # composite the watermark with the layer
     return Image.composite(layer, img, layer)
 
@@ -254,6 +257,7 @@ def watermark_processor(image, WATERMARK=False, **kwargs):
             WATERMARK.get('scale', 1),
             WATERMARK.get('tile', False),
             WATERMARK.get('greyscale', False),
-            WATERMARK.get('rotation', 0)
+            WATERMARK.get('rotation', 0),
+            WATERMARK.get('noalpha', True)
         )
     return image
