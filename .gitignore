@@ -16,4 +16,4 @@ conf/nginx.conf
 
 .vscode
 
-/*.egg-info/
+*.egg-info/
